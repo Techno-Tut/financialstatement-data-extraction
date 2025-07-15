@@ -7,6 +7,9 @@
 data/
 *.pdf
 
+# Results directory (may contain PII)
+results/
+
 # Python
 __pycache__/
 *.py[cod]
