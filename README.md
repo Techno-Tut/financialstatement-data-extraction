@@ -50,16 +50,18 @@ This project creates an automated pipeline that:
 
 ## Project Structure
 
+> **🔒 SECURITY NOTE**: The `data/`, `results/`, and `.env` files have been redacted from this repository to protect PII (Personally Identifiable Information) and sensitive API keys. You will need to create these directories and files locally.
+
 ```
 finnance/poc/
 ├── structred_data_extraction.ipynb  # Main Jupyter notebook
-├── data/                           # Input PDF files
+├── data/                           # Input PDF files (REDACTED - contains PII)
 │   ├── Scotia.pdf                  # Sample bank statement
 │   ├── Amex.pdf                   # Sample credit card statement
 │   └── Statements.pdf             # Sample statement file
-├── results/                       # Output directory
+├── results/                       # Output directory (REDACTED - contains PII)
 │   └── structured_data.json      # Processed results
-├── .env                          # Environment variables
+├── .env                          # Environment variables (REDACTED - contains API keys)
 └── README.md                     # This file
 ```
 
