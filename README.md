@@ -2,6 +2,36 @@
 
 A Python-based pipeline that extracts and structures data from financial statements (credit card and bank account statements) using AI-powered document processing.
 
+## Pipeline Architecture
+
+```mermaid
+graph LR
+    A[PDF Files<br/>📄 Credit Card Statements<br/>📄 Bank Statements] --> B{PDF Extractor}
+    B --> C[LlamaParse<br/>🔧 Advanced Layout]
+    B --> D[PyPDF<br/>🔧 Fallback Parser]
+    C --> E[Raw Text<br/>📝 Extracted Content]
+    D --> E
+    E --> F[LangChain Processor<br/>🤖 GPT-4 Analysis]
+    F --> G[Pydantic Models<br/>✅ Data Validation]
+    G --> H[Structured JSON<br/>📊 Final Output]
+    
+    style A fill:#f0f0f0,stroke:#333,stroke-width:2px,color:#000
+    style B fill:#e0e0e0,stroke:#333,stroke-width:2px,color:#000
+    style C fill:#d0d0d0,stroke:#333,stroke-width:2px,color:#000
+    style D fill:#d0d0d0,stroke:#333,stroke-width:2px,color:#000
+    style E fill:#c0c0c0,stroke:#333,stroke-width:2px,color:#000
+    style F fill:#b0b0b0,stroke:#333,stroke-width:2px,color:#000
+    style G fill:#a0a0a0,stroke:#333,stroke-width:2px,color:#000
+    style H fill:#909090,stroke:#333,stroke-width:2px,color:#fff
+```
+
+**Flow Description:**
+1. **Input**: PDF financial statements (credit card or bank account statements)
+2. **Extraction**: Dual-path PDF processing with LlamaParse (primary) and PyPDF (fallback)
+3. **Processing**: LangChain orchestrates GPT-4 to analyze and structure the raw text
+4. **Validation**: Pydantic models ensure data integrity and type safety
+5. **Output**: Clean, structured JSON data ready for analysis
+
 ## Overview
 
 This project creates an automated pipeline that:
@@ -183,36 +213,6 @@ The pipeline generates:
    source venv/bin/activate
    pip install -r requirements.txt  # if you have one
    ```
-
-## Pipeline Architecture
-
-```mermaid
-graph LR
-    A[PDF Files<br/>📄 Credit Card Statements<br/>📄 Bank Statements] --> B{PDF Extractor}
-    B --> C[LlamaParse<br/>🔧 Advanced Layout]
-    B --> D[PyPDF<br/>🔧 Fallback Parser]
-    C --> E[Raw Text<br/>📝 Extracted Content]
-    D --> E
-    E --> F[LangChain Processor<br/>🤖 GPT-4 Analysis]
-    F --> G[Pydantic Models<br/>✅ Data Validation]
-    G --> H[Structured JSON<br/>📊 Final Output]
-    
-    style A fill:#f0f0f0,stroke:#333,stroke-width:2px,color:#000
-    style B fill:#e0e0e0,stroke:#333,stroke-width:2px,color:#000
-    style C fill:#d0d0d0,stroke:#333,stroke-width:2px,color:#000
-    style D fill:#d0d0d0,stroke:#333,stroke-width:2px,color:#000
-    style E fill:#c0c0c0,stroke:#333,stroke-width:2px,color:#000
-    style F fill:#b0b0b0,stroke:#333,stroke-width:2px,color:#000
-    style G fill:#a0a0a0,stroke:#333,stroke-width:2px,color:#000
-    style H fill:#909090,stroke:#333,stroke-width:2px,color:#fff
-```
-
-**Flow Description:**
-1. **Input**: PDF financial statements (credit card or bank account statements)
-2. **Extraction**: Dual-path PDF processing with LlamaParse (primary) and PyPDF (fallback)
-3. **Processing**: LangChain orchestrates GPT-4 to analyze and structure the raw text
-4. **Validation**: Pydantic models ensure data integrity and type safety
-5. **Output**: Clean, structured JSON data ready for analysis
 
 ## Extending the Pipeline
 
