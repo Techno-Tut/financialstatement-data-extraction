@@ -70,8 +70,7 @@ finnance/poc/
 - Python 3.8+
 - Virtual environment (recommended)
 - OpenAI API key
-- LlamaParse API key (optional, will fallback to PyPDF)
-
+- LlamaParse API key
 ## Installation
 
 1. **Clone or navigate to the project directory**:
@@ -102,7 +101,7 @@ finnance/poc/
 
 2. **API Keys**:
    - **OpenAI API Key**: Required for GPT-4 processing. Get it from [OpenAI Platform](https://platform.openai.com/api-keys)
-   - **LlamaParse API Key**: Optional but recommended for better PDF parsing. Get it from [LlamaIndex Cloud](https://cloud.llamaindex.ai/)
+   - **LlamaParse API Key**: Is recommended for better PDF parsing. Get it from [LlamaIndex Cloud](https://cloud.llamaindex.ai/)
 
 ## Running the Notebook
 
